@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS seeds.ingredient
     last_updated_datetime TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS seeds.food_group
+CREATE TABLE IF NOT EXISTS seeds.ingredient_group
 (
     id                    BIGSERIAL     PRIMARY KEY NOT NULL,
     name                  TEXT                      NOT NULL,
@@ -16,11 +16,9 @@ CREATE TABLE IF NOT EXISTS seeds.food_group
     last_updated_datetime TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS seeds.ingredient_food_group
+CREATE TABLE IF NOT EXISTS seeds.ingredient_ingredient_group
 (
-    ingredient_id      BIGINT  NOT NULL,
-    food_group_id      BIGINT  NOT NULL,
-    CONSTRAINT ingredient_food_group_pkey PRIMARY KEY (ingredient_id, food_group_id),
-    CONSTRAINT fk_ingredient_ingredient_food_group FOREIGN KEY(ingredient_id) REFERENCES seeds.ingredient(id) ON UPDATE CASCADE,
-    CONSTRAINT fk_food_group_ingredient_food_group FOREIGN KEY(food_group_id) REFERENCES seeds.food_group(id) ON UPDATE CASCADE
+    ingredient_id            BIGINT  NOT NULL,
+    ingredient_group_id      BIGINT  NOT NULL,
+    CONSTRAINT ingredient_ingredient_group_pkey PRIMARY KEY (ingredient_id, ingredient_group_id)
 );
