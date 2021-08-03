@@ -6,7 +6,10 @@ import co.uk.rizzutih.web.response.IngredientGroupResponse;
 public class IngredientGroupResponseFactory {
 
     public IngredientGroupResponse getInstance(final IngredientGroup ingredientGroup) {
-        return null;
+        return IngredientGroupResponse.builder()
+                .id(ingredientGroup.getId())
+                .name(ingredientGroup.getName())
+                .build();
     }
 
 }
