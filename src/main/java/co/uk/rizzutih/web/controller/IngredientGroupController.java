@@ -1,5 +1,6 @@
 package co.uk.rizzutih.web.controller;
 
+import co.uk.rizzutih.exception.IngredientGroupNotFoundException;
 import co.uk.rizzutih.model.IngredientGroup;
 import co.uk.rizzutih.service.IngredientGroupService;
 import co.uk.rizzutih.web.response.IngredientGroupResponse;
@@ -16,14 +17,16 @@ public class IngredientGroupController {
 
     private IngredientGroupResponseFactory ingredientGroupresponseFactory;
 
-    public IngredientGroupController(IngredientGroupService ingredientGroupService, IngredientGroupResponseFactory ingredientGroupresponseFactory) {
+    public IngredientGroupController(final IngredientGroupService ingredientGroupService,
+                                     final IngredientGroupResponseFactory ingredientGroupresponseFactory) {
         this.ingredientGroupService = ingredientGroupService;
         this.ingredientGroupresponseFactory = ingredientGroupresponseFactory;
     }
 
-    @GetMapping("{id}")//TODO: continue defining endpoint
-    public ResponseEntity<IngredientGroupResponse> get(@PathVariable final Long id) {
-        final IngredientGroup ingredientGroup = ingredientGroupService.get(id);
+    @GetMapping("{id}")
+    public ResponseEntity<IngredientGroupResponse> get(@PathVariable final Long id) throws IngredientGroupNotFoundException {
+
+        final IngredientGroup ingredientGroup = ingredientGroupService.getIngredientGroup(id);
 
         final IngredientGroupResponse ingredientGroupResponse = ingredientGroupresponseFactory.getInstance(ingredientGroup);
 

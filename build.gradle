@@ -29,8 +29,6 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.7.2'
 	testImplementation group: 'uk.org.fyodor', name: 'fyodor-core', version: '1.0.0'
-
-
 }
 
 test {
