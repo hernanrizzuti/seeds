@@ -3,6 +3,7 @@ package co.uk.rizzutih.service;
 import co.uk.rizzutih.exception.IngredientGroupNotFoundException;
 import co.uk.rizzutih.model.IngredientGroup;
 import co.uk.rizzutih.repository.IngredientGroupRepository;
+import co.uk.rizzutih.web.request.IngredientGroupRequest;
 import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -30,5 +31,10 @@ public class IngredientGroupServiceImpl implements IngredientGroupService {
             throw new IngredientGroupNotFoundException(message);
         }
         return ingredientGroup.get();
+    }
+
+    @Override
+    public Long createIngredientGroup(final IngredientGroupRequest ingredientGroupRequest) {
+        return null;
     }
 }

@@ -1,12 +1,13 @@
 package co.uk.rizzutih.web.response;
 
-import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 @Getter
 @SuperBuilder
-public class IngredientGroupResponse extends BaseResponse{
+@NoArgsConstructor
+public class BaseResponse {
 
-    private String name;
+    private Long id;
 }
