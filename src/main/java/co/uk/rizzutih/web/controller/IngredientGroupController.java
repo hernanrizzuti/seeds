@@ -6,11 +6,12 @@ import co.uk.rizzutih.service.IngredientGroupService;
 import co.uk.rizzutih.web.response.IngredientGroupResponse;
 import co.uk.rizzutih.web.response.factory.IngredientGroupResponseFactory;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-@RestController("/ingredients")
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
+@RestController
+@RequestMapping("/ingredients-group")
 public class IngredientGroupController {
 
     private IngredientGroupService ingredientGroupService;
@@ -23,7 +24,7 @@ public class IngredientGroupController {
         this.ingredientGroupresponseFactory = ingredientGroupresponseFactory;
     }
 
-    @GetMapping("{id}")
+    @GetMapping(produces=APPLICATION_JSON_VALUE, value = "/{id}")
     public ResponseEntity<IngredientGroupResponse> get(@PathVariable final Long id) throws IngredientGroupNotFoundException {
 
         final IngredientGroup ingredientGroup = ingredientGroupService.getIngredientGroup(id);
@@ -32,5 +33,7 @@ public class IngredientGroupController {
 
         return ResponseEntity.ok(ingredientGroupResponse);
     }
+
+//    @PostMapping()
 
 }

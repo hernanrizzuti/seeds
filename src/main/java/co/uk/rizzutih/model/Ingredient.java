@@ -1,7 +1,8 @@
 package co.uk.rizzutih.model;
 
-import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import java.util.List;
@@ -10,11 +11,9 @@ import java.util.List;
 @Table(name = "ingredient", schema = "seeds")
 @SequenceGenerator(name = "default_gen", sequenceName = "ingredient_id_seq", allocationSize = 1)
 @Getter
-@Builder
-public class Ingredient {
-
-    @Id
-    private long id;
+@SuperBuilder
+@NoArgsConstructor
+public class Ingredient extends BaseEntity {
 
     private String name;
 
