@@ -1,6 +1,5 @@
 package co.uk.rizzutih.web.response;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 
