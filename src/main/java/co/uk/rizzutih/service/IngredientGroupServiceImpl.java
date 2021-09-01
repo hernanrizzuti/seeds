@@ -32,6 +32,7 @@ public class IngredientGroupServiceImpl implements IngredientGroupService {
         if (ingredientGroup.isEmpty()) {
             final String message = format("IngredientGroup with id %s was not found", id);
             log.warn(message);
+            //TODO: Add ControllerAdviseHandler
             throw new IngredientGroupNotFoundException(message);
         }
         return ingredientGroup.get();
